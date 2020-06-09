@@ -35,6 +35,10 @@ namespace Command_design_pattern___List
             {
                 listView1.Items.Add(item.ToString());
             }
+            if (invoker.Undo.Count() != 0)
+            {
+                undoButton.Enabled = true;
+            }
         }
 
         private void undoButton_Click(object sender, EventArgs e)
@@ -42,6 +46,9 @@ namespace Command_design_pattern___List
             invoker.undo();
             populateList();
             redoButton.Enabled = true;
+            if (invoker.Undo.Count() == 0) {
+                undoButton.Enabled = false;
+            }
         }
 
         private void redoButton_Click(object sender, EventArgs e)
@@ -52,6 +59,7 @@ namespace Command_design_pattern___List
             if (invoker.Redo.Count() == 0) {
                 redoButton.Enabled = false;
             }
+            
         }
 
         private void addButton_Click(object sender, EventArgs e)

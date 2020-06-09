@@ -32,6 +32,7 @@ namespace Command_design_pattern___List
         }
         public void redo()
         {
+            
             command = Redo.Pop();
             Undo.Push(command);
             command.Execute();
