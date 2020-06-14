@@ -30,6 +30,7 @@ namespace Command_design_pattern___List
         }
 
         private void populateList() {
+
             listView1.Clear();
             foreach (var item in receiver.list)
             {
@@ -38,6 +39,10 @@ namespace Command_design_pattern___List
             if (invoker.Undo.Count() != 0)
             {
                 undoButton.Enabled = true;
+            }
+            if (invoker.Redo.Count() == 0)
+            {
+                redoButton.Enabled = false;
             }
         }
 
